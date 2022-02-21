@@ -12,7 +12,7 @@ pipeline {
                 sh '''
                     echo "Using a multi-line shell"
                     chmod +x test.sh
-                    ./test.sh
+                    ./1.0/test.sh
                 '''
             }
         }
