@@ -11,7 +11,7 @@ pipeline {
                 echo "This is build number $BUILD_NUMBER of $DEMO"
                 sh '''
                     echo "Using a multi-line shell"
-                    chmod +x test.sh
+                    chmod +x ./1.0/test.sh
                     ./1.0/test.sh
                 '''
             }
