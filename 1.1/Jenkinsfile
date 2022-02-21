@@ -22,5 +22,25 @@ pipeline {
                 echo "I can see  release ${RELEASE} but not log level..."
             }
         }
+
+        stage('Deploy') {
+            input {
+                message 'Deploy?'
+                ok 'Do it!'
+                parameters {
+                    string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environment')
+                }
+            }
+
+            steps {
+                echo "Deploying ${RELEASE} to ${TARGET_ENVIRONMENT}"
+            }
+        }
+    }
+
+    post {
+        always {
+            echo "Prints wether deploy happened or not, success or failure"
+        }
     }
 }
